@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+      /* General styling */
+      \body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  /* Announcement bar styling */
+  .announcement-bar {
+    background-color: red;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+  }
+
+  /* Close button styling */
+  .close-btn {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  /* Grid styling */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+  }
+  /* Product card styling */
+  .product-card {
+    background-color: black;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(253, 251, 251, 0.878);
+    transition: 0.3s ease;
+    text-align: center;
+  }
+  .product-card:hover {
+    box-shadow: 0 6px 12px rgba(250, 248, 248, 0.875);
+  }
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
+  .product-info {
+    padding: 15px;
+  }
+  .product-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(170, 165, 156);
+    margin: 10px 0;
+  }
+  .product-price {
+    color: white;
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  .rating {
+    color: white;
+  }
+  .add-to-cart-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  .add-to-cart-btn:hover {
+    background-color: rgb(49, 41, 41);
+  }
+</style>
+
+<body>
+    <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="samsung.png" alt="Product Image" />
+        <div class="product-info">
+          <div class="product-title">Samsung Galaxy S21</div>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-alt"></i>
+          </div>
+          <div class="product-price">$599.99</div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+</body>
+</html><div class="product-grid">
+  
+  
