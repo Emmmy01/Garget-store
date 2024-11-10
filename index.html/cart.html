@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByteBox</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" href="white.logo.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    </head>
+    <style>
+      /* General styling */
+      body {
+        margin: 0;
+        font-family: "Poppins", serif;
+        font-weight: 400;
+      }
+
+      /* Navigation bar styling */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        padding: 10px 20px;
+      }
+
+      /* Logo styling */
+      .logo img {
+        height: 90px;
+        width: 120px;
+      }
+
+      /* Center menu items container */
+      .menu-items {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Menu items styling */
+      .menu-items li {
+        position: relative;
+        padding: 0 15px;
+      }
+
+      .menu-items a {
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        padding: 7px 15px;
+        display: block;
+      }
+      .menu-items a:hover {
+        background-color: red;
+        border-radius: 10%;
+      }
+
+      /* Search bar styling */
+      .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: #333;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 200px;
+      }
+
+      .search-bar input[type="text"] {
+        border: none;
+        outline: none;
+        padding: 7px;
+        color: white;
+        background-color: #333;
+        width: 100%;
+      }
+
+      .search-bar button {
+        background-color: red;
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+        color: white;
+      }
+
+      /* Cart and icon styling */
+    .fa-shopping-bag,
+    .fa-heart,
+    .fa-user {
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    /* Profile Icon container for dropdown */
+    .profile-icon {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown content styling */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: black;
+      min-width: 160px;
+      z-index: 1;
+      top: 100%;
+      right: 0;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Dropdown items */
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      transition: background-color 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+      background-color: red;
+    }
+
+    /* Show dropdown on hover */
+    .profile-icon:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Adjusting layout of icons */
+    .cons {
+      display: flex;
+      gap: 30px;
+    }
+
+      /* Show dropdown on hover */
+      .menu-items li:hover .dropdown-content {
+        display: block;
+      }
+ 
+      
+   /* Announcement bar styling */
+   .announcement-bar {
+      background-color: red;
+      color: black;
+      text-align: center;
+      padding: 10px;
+      font-size: 1em;
+      font-weight: bold;
+      position: relative;
+    }
+    
+    /* Close button styling */
+    .close-btn {
+      position: absolute;
+      right: 15px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .menu-items a i {
+  margin-left: 5px; /* Adds spacing between text and arrow */
+  font-size: 0.8em; /* Adjusts icon size if needed */
+  vertical-align: middle; /* Aligns arrow with text */
+}
+
+
+    
+    /* Footer Styling */
+footer {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+footer h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: red;
+  padding: 5px;
+}
+
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    display: none;
+  }
+
+
+  .closebtn{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 56px;
+    display: none;
+  }
+#scrollToTopBtn2 {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+  background-color: black;
+}
+
+#whatsappButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366; /* WhatsApp green */
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+#whatsappButton:hover {
+  background-color: #128c7e; /* Darker WhatsApp green */
+}
+
+
+#scrollToTopBtn2:hover {
+  background-color: black;
+}
+
+
+footer p, footer ul, footer a {
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 5px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: red;
+}
+
+footer .newsletter form {
+  display: flex;
+  margin-top: 10px;
+}
+
+footer .newsletter input[type="email"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  flex: 1;
+}
+
+footer .newsletter button {
+  padding: 10px 20px;
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+footer .newsletter button:hover {
+  background-color: black;
+}
+
+footer .social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+footer .social-icons a {
+  font-size: 18px;
+}
+
+footer .quick-links ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+footer .quick-links li {
+  margin-bottom: 8px;
+  margin-left: 50px;
+}
+
+footer .footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 20px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+
+  footer .newsletter form {
+    flex-direction: column;
+  }
+
+  footer .newsletter input[type="email"],
+  footer .newsletter button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  footer .social-icons {
+    justify-content: center;
+  }
+}
+
+    /* Responsive styling */
+    @media (max-width: 768px) {
+      .promo-container {
+        flex-direction: column;
+      }
+      .promo-image, .promo-details {
+        width: 100%;
+      }
+      .arrow-left {
+      left: 35px;
+    
+      z-index: 1;
+      margin-top: -25px;
+
+    }
+
+    .arrow-right {
+      right: 35px;
+  
+      margin-top: -25px;
+    }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .service-menu {
+        flex-direction: column;
+        text-align: center;
+      }
+      .service-item {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+    }
+    /* For tablets and smaller desktops */
+@media (max-width: 1024px) {
+  .about-container {
+  
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+  .about-image {
+    width: 80%;
+    margin: 0 auto;
+    margin-left: -20px;
+  }
+  .about-content {
+    text-align: center;
+    padding: 10px;
+  }
+  .live-box2 {
+      display: inline-block;
+      font-size: 15px;
+      background-color: red;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 5px;
+      position: absolute;
+      
+      top: 10px;
+      right: calc(28% - 60px); /* Center align with minor offset */
+      transform: translateX(-50%);
+    }
+
+}
+
+/* For smaller screens, like mobile devices */
+@media (max-width: 768px) {
+  .about-container {
+  
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .about-content h2 {
+    font-size: 24px;
+  }
+  .about-content p {
+    font-size: 14px;
+  }
+  .about-image {
+    width: 40%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .about-image img {
+  height: 200px; /* Make this taller than text content */
+  width: 320px;
+  border-radius: 10px;
+}
+.feature-bg2 {
+      font-size: 40px;
+      font-weight: bold;
+      color: rgba(152, 141, 141, 0.1); /* Very light color */
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-shadow: 
+        -1px -1px 0 rgb(10, 6, 6),   /* Top left shadow */
+         1px -1px 0 rgb(9, 7, 7),   /* Top right shadow */
+        -1px  1px 0 rgb(16, 5, 5),   /* Bottom left shadow */
+         1px  1px 0 rgb(9, 6, 6);   /* Bottom right shadow */
+    }
+    .live-box2 {
+      display: inline-block;
+      font-size: 15px;
+      background-color: red;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 5px;
+      position: absolute;
+      
+      top: 10px;
+      right: calc(28% - 60px); /* Center align with minor offset */
+      transform: translateX(-50%);
+    }
+
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .about-container {
+  
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+  .about-content h2 {
+    font-size: 20px;
+  }
+  .about-content p {
+    font-size: 12px;
+  }
+  .about-image {
+    width: 100%;
+  }
+}
+
+
+
+
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .feature-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .featured-product{
+        display: inline-block;
+      }
+      .feature-image img {
+        width: 130%;
+        
+      }
+      @keyframes float {
+        0%{
+          transform: translateY(10px);
+        }
+        50%{
+          transform: translateY(-40px);
+        }
+        100%{
+          transform: translateY(0px);
+        }
+      }
+      
+      .product-info h2 {
+      font-size: 21px;
+      color: white;
+      margin-left: 1;
+      white-space: nowrap;
+      margin-bottom: 10px;
+      
+    }
+    .product-info .description {
+      margin-bottom: 15px;
+      color: #555;
+      font-size: 10px;
+      
+      
+    }
+    .product-info{
+    
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 40px;
+      align-content: center;
+    }
+    .main-image {
+      width: 90%;
+      margin-left: 0px;
+      border-radius: 10px;
+    }
+    .feature-bg {
+      font-size: 50px;
+      font-weight: bold;
+      color: rgba(152, 141, 141, 0.1); /* Very light color */
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-shadow: 
+        -1px -1px 0 rgb(10, 6, 6),   /* Top left shadow */
+         1px -1px 0 rgb(9, 7, 7),   /* Top right shadow */
+        -1px  1px 0 rgb(16, 5, 5),   /* Bottom left shadow */
+         1px  1px 0 rgb(9, 6, 6);   /* Bottom right shadow */
+    }
+    }
+    .product-info .price {
+      font-size: 16px;
+      color: blanchedalmond;
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+    
+
+    
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+       
+
+        .navbar {
+            margin-top: 0px;
+          flex-direction: column;
+          height: 150px;
+        }
+        
+        
+        .menu-items li {
+          padding: 10px 0;
+        }
+        .search-bar {
+          width: 100%;
+        
+          
+        }
+    
+        .menu-items, .icons {
+          display: block;
+          
+        }
+
+        
+      }
+     
+ 
+
+      
+
+      @media (max-width: 480px) {
+        .logo img {
+          height: 70px;
+          width: 100px;
+        }
+
+        .content h1 {
+          font-size: 1.5rem;
+        }
+
+        .content p {
+          font-size: 0.9rem;
+        }
+
+        .content a {
+          font-size: 0.8rem;
+        }
+      
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: black;
+    z-index: 1;
+  }
+
+  .menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .menu-items {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1;
+  }
+
+  .menu-items a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  .menu-items a:hover {
+    color: black;
+    
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 56px;
+  }
+  .molo {
+    display: flex;
+    justify-content: space-between;
+   
+    
+  }
+}
+        
+      
+      @media (max-width: 768px) {
+ 
+  .menu-icon {
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-inline:280%;
+   
+    
+  
+    
+  }
+  .logo{
+    margin-inline:-100%;
+  }
+  .molo {
+    display: inline-flex;
+    margin-inline: 40px;
+    justify-content: space-between;
+   
+    
+  }
+
+  .molo.menu-icon {
+    margin-left: 50%;
+    
+  }
+
+  .menu-items {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1;
+  }
+
+  .menu-items a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  .menu-items a:hover {
+    color: black;
+    
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 56px;
+    display: block;
+    
+  }
+}
+body {
+  font-family: "Poppins", serif;
+    background-color: rgb(18, 17, 17);
+    
+    
+}
+
+h1 {
+    text-align: center;
+    font-size: 35px;
+    color: rgb(240, 236, 236);
+}
+
+#cartItems {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+ 
+
+.cart-item {
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.totals {
+    background-color: black;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 900px;
+    border: 2px white solid;
+      max-width: 1000px;
+
+}
+.totals p{
+  color: white;
+}
+.totals .clg{
+  color: red;
+}
+.grand{
+  font-size: 30px;
+}
+input[type="number"] {
+    width: 50px;
+    margin-top: -1px;
+    margin-left: 10px;
+    border-radius: 5px;
+    height: 20px;
+    border: 1px red solid;
+}
+.leb{
+  color: #25d366;
+}
+input [type="text"]{
+  border: 2px solid red;
+}
+.box{
+  border: 1px solid red;
+  width: 80px;
+  height: 20px;
+  border-radius: 5px;
+  background: none;
+  color: white;
+}
+button {
+    display: block;
+    margin: 20px auto;
+    background-color: red; /* or any preferred color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+.free-shipping{
+  color: #25d366;
+  padding: 15px;
+  margin-inline:16%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+@media (max-width: 768px) {
+  .cart-item {
+    display: flex;
+     flex-direction: column;
+    justify-content: space-between;
+  
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+input[type="number"] {
+    width: 50px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px red solid;
+}
+.totals {
+    background-color: black;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 900px;
+  margin-inline: 10px;
+}
+
+
+}
+.uko{
+  padding: 15px;
+}
+.uko h3{
+  color: white;
+}
+.uko p{
+  color: beige;
+}
+    
+   
+h1{
+  color: #1a1a1a;
+}
+
+body {
+  font-family: "Poppins", serif;
+    background-color: #f4f4f9;
+    padding: 0px;
+}
+
+.checkout-container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.order-summary, .coupon, .address-section, .payment-section {
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"] {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+@media  (max-width: 768px) {
+
+  input[type="text"] {
+    width: 93%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    margin-inline: 2%;
+}
+
+.uko p{
+  color: #25d366;
+}
+.uko h3{
+  color: #1a1a1a;
+
+}
+h3 {
+    color: #555;
+    margin-bottom: 10px;
+    margin-inline: 2%;
+}
+}
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.checkout-btn {
+    background-color: #27ae60;
+}
+
+.checkout-btn:hover {
+    background-color: #219150;
+}
+
+#couponMessage {
+    margin-top: 10px;
+}
+.uko h3{
+  color: #1a1a1a;
+  margin-inline: 8%;
+
+}
+.uko p{
+  color: #25d366;
+  margin-inline: 8%;
+}
+
+.payment-method {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; /* Make it round */
+    background-color: lightgrey; /* Default color */
+    margin-right: 10px; /* Space between dot and text */
+}
+
+.payment-fields {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+}
+
+    </style>
+  </head>
+  <body>
+     <!-- Announcement bar -->
+  <div class="announcement-bar">
+    <span id="announcement-text">🚀 Free Shipping on Orders Over $50! Limited Time Offer 🚀</span>
+    <span class="close-btn" onclick="hideBar()">×</span>
+  </div>
+
+  <script>
+    // Array of announcements
+    const announcements = [
+      "🚀 Free Shipping on Orders Over $50! Limited Time Offer 🚀",
+      "💥 New Arrivals in the Gadget Store! Check them out 💥",
+      "📱 Special Discount on Smartphones! Limited Stock 📱"
+    ];
+
+    let currentIndex = 0;
+
+    // Function to rotate announcements every 5 seconds
+    function rotateAnnouncements() {
+      const announcementText = document.getElementById("announcement-text");
+      currentIndex = (currentIndex + 1) % announcements.length;
+      announcementText.textContent = announcements[currentIndex];
+    }
+
+    // Start rotating every 5 seconds
+    setInterval(rotateAnnouncements, 5000);
+
+    // Hide the announcement bar
+    function hideBar() {
+      document.querySelector(".announcement-bar").style.display = "none";
+    }
+    
+  </script>
+    <section>
+
+        <div class="navbar">
+          <div class="molo">
+         
+          <!-- Logo on the left -->
+          <a href="index.html" class="logo"><img src="white.logo.png" alt="Logo" /></a>
+          <span class="menu-icon" onclick="openSidebar()">&#9776;</span>
+          </div>
+          <!-- Centered menu items -->
+          <ul class="menu-items" id="sidebar">
+            <div class="closebtn">
+              <a href="javascript:void(0)" onclick="closeSidebar()">&times;</a>
+            </div>
+            
+            <li><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">About <i class="fa fa-angle-down"></i></a>
+              <div class="dropdown-content">
+                <a href="ourstory.html">Our Story</a>
+                <a href="#">Meet the Team</a>
+                <a href="#">Our Values</a>
+                <a href="#">Customer Reviews</a>
+              </div>
+            </li>
+            <li>
+                <a href="#">Products <i class="fa fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                  <a href="phone-product.html">Smartphone</a>
+                  <a href="#">Laptop</a>
+                  <a href="#">Tablets</a>
+                  <a href="#">Smartwatches</a>
+                  <a href="#">Gaming Consoles</a>
+                  <a href="#">Accessories</a>
+                </div>
+              </li>
+              <li>
+                <a href="#">Contact <i class="fa fa-angle-down"></i></a>
+                <div class="dropdown-content">
+                  <a href="#">Customer Support</a>
+                  <a href="#">Store Locations</a>
+                  <a href="#">Returns & Exchanges</a>
+                  <a href="#">Shipping & Delivery</a>
+                </div>
+              </li>
+        </ul>
+        <script>
+          function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+          }
+        
+          function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+          }
+        </script>
+
+        <!-- Search bar in the center -->
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." />
+          <button><i class="fa fa-search"></i></button>
+        </div>
+
+         <!-- Cart icon on the right -->
+         <div class="cons">
+            <a href="#" title="Cart"><i class="fa fa-shopping-bag"></i></a>
+            <!-- <a href="#"><i class="fa fa-user"></i></a>-->
+             <!-- Profile icon with dropdown -->
+              <div class="profile-icon">
+                <a href="#"><i class="fa fa-user"></i></a>
+                <div class="dropdown-content">
+                  <a href="#">My Account</a>
+                  <a href="#">Sign Out</a>
+                </div>
+              </div>
+            <a href="#" title="Favorite"><i class="fa fa-heart"></i></a>
+          </div>
+        </div>
+        <div id="messageBox" class="message-box" style="display: none;">Coupon code is invalid</div>
+
+<h1>Your Cart</h1>
+<div id="cartItems"></div>
+
+<!-- Shipping message -->
+<p id="shippingMessage" class="free-shipping" style="display: none;">You are eligible for free shipping!</p>
+
+<div class="totals">
+    <p>Subtotal: <span id="subtotal">$0.00</span></p>
+    <p class="clg">Sales Tax: <span id="salesTax">$20.00</span></p>
+    <label class="leb" for="coupon">Coupon Code:</label>
+    <input class="box" type="text" id="coupon" placeholder="Enter coupon code">
+    <button onclick="applyCoupon()">Apply Coupon</button>
+    <p class="clg">Shipping: <span id="shipping">$0.00</span></p>
+    <p class="grand">Grand Total: <span id="grandTotal">$0.00</span></p>
+    <div id="couponMessage" style="display: none; color: red;"></div>
+</div>
+
+<!-- Tracking Order -->
+<div class="uko">
+    <h3>Tracking</h3>
+    <p>Your tracking number: <span id="trackingNumber">Not yet assigned</span></p>
+</div>
+
+<button onclick="checkout()">Proceed to Checkout</button>
+<button onclick="clearCart()">Clear Cart</button>
+
+<!-- Checkout Form (Hidden initially) -->
+<div id="checkoutForm" style="display: none;">
+  <h1>Checkout</h1>
+
+  <div class="payment-options">
+      <h2>Select Payment Method</h2>
+      
+      <div onclick="togglePaymentFields('bankTransfer', this)" class="payment-method">
+          <span class="dot"></span> <strong>Bank Transfer</strong>
+      </div>
+      <div id="bankTransferFields" class="payment-fields" style="display: none;">
+          <label>Bank Account Name: <input type="text" id="accountName"></label><br>
+          <label>Bank Account Number: <input type="text" id="accountNumber"></label><br>
+          <label>Bank Name: <input type="text" id="bankName"></label><br>
+      </div>
+      
+      <div onclick="togglePaymentFields('card', this)" class="payment-method">
+          <span class="dot"></span> <strong>Credit/Debit Card</strong>
+      </div>
+      <div id="cardFields" class="payment-fields" style="display: none;">
+          <label>Card Number: <input type="text" id="cardNumber"></label><br>
+          <label>Expiration Date: <input type="text" id="expiryDate" placeholder="MM/YY"></label><br>
+          <label>CVV: <input type="text" id="cvv"></label><br>
+      </div>
+      
+      <div onclick="togglePaymentFields('paypal', this)" class="payment-method">
+          <span class="dot"></span> <strong>Pay with PayPal  </strong>  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" width="50" />
+      </div>
+      <div id="paypalFields" class="payment-fields" style="display: none;">
+          <p>You will be redirected to PayPal to complete your purchase.</p>
+          <button onclick="redirectToPayPal()">Pay with PayPal</button>
+      </div>
+      
+      <div onclick="togglePaymentFields('cod', this)" class="payment-method">
+          <span class="dot"></span> <strong>Cash on Delivery</strong>
+      </div>
+      <div id="codFields" class="payment-fields" style="display: none;">
+          <p>Pay when you receive your order.</p>
+      </div>
+  </div>
+  
+  <button onclick="processPayment()">Complete Purchase</button>
+  
+  <script>
+  function togglePaymentFields(method, element) {
+      // Hide all fields first
+      document.querySelectorAll('.payment-fields').forEach(div => div.style.display = 'none');
+      
+      // Reset all dots to grey
+      document.querySelectorAll('.dot').forEach(dot => dot.style.backgroundColor = 'lightgrey');
+      
+      // Show the selected method's fields and turn the dot green
+      document.getElementById(method + 'Fields').style.display = 'block';
+      element.querySelector('.dot').style.backgroundColor = 'green';
+  }
+  
+  function redirectToPayPal() {
+      window.location.href = 'https://www.paypal.com';
+  }
+  
+  function processPayment() {
+      const selectedMethod = document.querySelector('.payment-fields[style*="display: block"]');
+      if (!selectedMethod) {
+          alert('Please select a payment method.');
+          return;
+      }
+      alert(`Processing payment via ${selectedMethod.id.replace('Fields', '')}`);
+  }
+  </script>
+  
+<script>
+    let couponDiscount = 0; // Initialize coupon discount
+
+    function displayCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsDiv = document.getElementById('cartItems');
+        cartItemsDiv.innerHTML = '';
+
+        if (cart.length === 0) {
+            cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+            return;
+        }
+
+        let subtotal = 0; // Initialize subtotal
+
+        cart.forEach(item => {
+            const itemTotal = item.quantity * parseFloat(item.price.replace('$', ''));
+            subtotal += itemTotal;
+            
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'cart-item';
+            itemDiv.innerHTML = `
+              <img src="${item.imageUrl}" alt="${item.productName}" style="width: 150px; height: 100px;">
+                <h3>${item.productName}</h3>
+                <p>Color: ${item.color}</p>
+                <p>Price: ${item.price}</p>
+                <p>Quantity: <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.productName}', this.value)">
+                <p>Total: <span class="itemTotal">$${itemTotal.toFixed(2)}</span></p>
+            `;
+            cartItemsDiv.appendChild(itemDiv);
+        });
+        
+        const salesTax = 20;
+        const shipping = calculateShipping(subtotal);
+        document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('salesTax').textContent = `$${salesTax.toFixed(2)}`;
+        document.getElementById('shipping').textContent = `$${shipping.toFixed(2)}`;
+        document.getElementById('grandTotal').textContent = `$${calculateGrandTotal(subtotal, salesTax, shipping).toFixed(2)}`;
+        
+        document.getElementById('shippingMessage').style.display = subtotal >= 200 ? 'block' : 'none';
+    }
+
+    function calculateShipping(subtotal) {
+        return subtotal > 200 ? 0 : 10; // Example: Free shipping if subtotal is over $200, otherwise $10
+    }
+
+    function updateQuantity(productName, quantity) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const updatedCart = cart.map(item => {
+            if (item.productName === productName) {
+                item.quantity = parseInt(quantity);
+            }
+            return item;
+        });
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        displayCart();
+    }
+
+    function applyCoupon() {
+        const couponInput = document.getElementById('coupon').value;
+        if (couponInput === "SAVE20") {
+            couponDiscount = 20;
+            document.getElementById('couponMessage').style.display = "none";
+        } else {
+            showInvalidCouponMessage();
+        }
+        const subtotal = parseFloat(document.getElementById('subtotal').textContent.replace('$', ''));
+        const salesTax = parseFloat(document.getElementById('salesTax').textContent.replace('$', ''));
+        const shipping = parseFloat(document.getElementById('shipping').textContent.replace('$', ''));
+        document.getElementById('grandTotal').textContent = `$${calculateGrandTotal(subtotal, salesTax, shipping).toFixed(2)}`;
+    }
+
+    function showInvalidCouponMessage() {
+        const messageElement = document.getElementById('couponMessage');
+        messageElement.textContent = "Coupon code is invalid";
+        messageElement.style.display = "block";
+        
+        setTimeout(() => {
+            messageElement.style.display = "none";
+        }, 5000);
+    }
+
+    function calculateGrandTotal(subtotal, salesTax, shipping) {
+        const total = subtotal + salesTax + shipping - couponDiscount;
+        return total < 0 ? 0 : total;
+    }
+
+    function checkout() {
+        document.getElementById('checkoutForm').style.display = 'block';
+    }
+
+    function completePurchase() {
+        alert("Thank you for your purchase!");
+        clearCart(); // Clear the cart after purchase
+        document.getElementById('trackingNumber').textContent = 'TRK-' + Math.floor(Math.random() * 1000000);
+    }
+
+    function clearCart() {
+        localStorage.removeItem('cart');
+        displayCart();
+        document.getElementById('trackingNumber').textContent = 'Not yet assigned';
+        alert("Your cart has been cleared.");
+    }
+
+    // Initial call to display the cart
+    displayCart();
+</script>
+
+<footer style="background-color: #1a1a1a; color: white; padding: 40px 20px;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-around;">
+    
+    <!-- About Section -->
+    <div style="flex: 1 1 250px; margin-bottom: 20px;">
+      <h3>About Us</h3>
+      <p>Discover the latest in tech gadgets that redefine convenience and functionality. At [Your Store Name], we’re dedicated to providing you with cutting-edge products and excellent customer service.</p>
+    </div>
+    
+    <!-- Newsletter Section -->
+    <div style="flex: 1 1 250px; margin-bottom: 20px;">
+      <h3>Stay Updated</h3>
+      <p>Subscribe to our newsletter for exclusive deals and updates on new arrivals.</p>
+      <form style="display: flex;">
+        <input type="email" placeholder="Enter your email" style="flex: 1; padding: 10px; border: none; border-radius: 5px 0 0 5px;" required />
+        <button type="submit" style="background-color: red; padding: 10px 20px; border: none; color: white; border-radius: 0 5px 5px 0;">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Quick Links Section -->
+    <div style="flex: 1 1 250px; margin-bottom: 20px;">
+      <h3>Quick Links</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#" style="color: white; text-decoration: none;">Home</a></li>
+        <li><a href="#" style="color: white; text-decoration: none;">Products</a></li>
+        <li><a href="#" style="color: white; text-decoration: none;">FAQs</a></li>
+        <li><a href="#" style="color: white; text-decoration: none;">Contact Us</a></li>
+        <li><a href="#" style="color: white; text-decoration: none;">Returns & Exchanges</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media Icons Section -->
+    <div style="flex: 1 1 20px; margin-bottom: 20px;">
+      <h3>Connect with Us</h3>
+      <div style="display: flex; gap: 15px;">
+        <a href="#" style="color: white;"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#" style="color: white;"><i class="fab fa-twitter fa-lg"></i></a>
+        <a href="#" style="color: white;"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#" style="color: white;"><i class="fab fa-linkedin fa-lg"></i></a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer Bottom -->
+  <div style="border-top: 1px solid #333; margin-top: 20px; padding-top: 20px; text-align: center; font-size: 14px;">
+    <p>&copy; ByteBox 2024. All rights reserved.</p>
+    <p><a href="#" style="color: white; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: white; text-decoration: none;">Terms of Service</a> | <a href="#" style="color: white; text-decoration: none;">Cookie Policy</a></p>
+  </div>
+  <button id="scrollToTopBtn2" title="Go to top">&#8679;</button>
+</footer>
+
+<!-- Include FontAwesome for social icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-8XSbG8QpeFvR11le5GxTwvwMTzSD4Q8f1Hq3XrPS1mDP1dczSCudENYPcBcm6NL5NQ/zvjRXnB1w5X2WW0WSxQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  </body>
+  <script>
+    // Show the button when scrolling down
+    window.onscroll = function() {
+      const scrollBtn = document.getElementById("scrollToTopBtn2");
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+  
+    // Scroll to the top when clicking the button
+    document.getElementById("scrollToTopBtn2").onclick = function() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+  </script>
+  
+  
+  </script>
+<a title="Chat with us on WhatsApp" href="https://wa.me/+2347065849749" id="whatsappButton" target="_blank" title="Chat with us on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<script>
+  // Show the WhatsApp button when scrolling down
+  window.onscroll = function() {
+    const whatsappBtn = document.getElementById("whatsappButton");
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      whatsappBtn.style.display = "block";
+    } else {
+      whatsappBtn.style.display = "none";
+    }
+  };
+</script>
+  
+</html>

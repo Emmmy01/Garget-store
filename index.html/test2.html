@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Background with Navbar</title>
+    <style>
+      /* Basic reset for body and html */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+      }
+
+      /* Styling for the video background */
+      .video-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      /* Navbar styling */
+      .navbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        padding: 1em;
+        z-index: 1;
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1em;
+        padding: 0.5em 1em;
+        transition: color 0.3s;
+      }
+
+      .navbar a:hover {
+        color: #ffcc00;
+      }
+
+      /* Content styling */
+      .content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: white;
+        margin-top: 20vh;
+      }
+
+      .content h1 {
+        font-size: 3em;
+        margin: 0;
+      }
+
+      .content p {
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background video -->
+    <video autoplay loop muted playsinline class="video-bg">
+      <source src="1731069100214.mp4" type="video/mp4" />
+      <source src="your-video.webm" type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Content overlay -->
+    <div class="content">
+      <h1>Welcome to My Website</h1>
+      <p>Captivating video background with overlay text</p>
+    </div>
+  </body>
+</html>

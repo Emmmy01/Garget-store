@@ -12,12 +12,16 @@
       referrerpolicy="no-referrer"
     />
     <link rel="icon" href="white.logo.png" type="image/png" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
     <style>
       /* General styling */
       body {
         margin: 0;
-        font-family: Arial, sans-serif;
+        font-family: "Poppins", serif;
+        font-weight: 400;
       }
 
       /* Navigation bar styling */
@@ -1438,6 +1442,151 @@ footer .footer-bottom {
     
   }
 }
+@media (max-width: 480px) {
+        .logo img {
+          height: 70px;
+          width: 100px;
+        }
+
+        .content h1 {
+          font-size: 1.5rem;
+        }
+
+        .content p {
+          font-size: 0.9rem;
+        }
+
+        .content a {
+          font-size: 0.8rem;
+        }
+      
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: black;
+    z-index: 1;
+  }
+
+  .menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .menu-items {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1;
+  }
+
+  .menu-items a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  .menu-items a:hover {
+    color: black;
+    
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 56px;
+  }
+  .molo {
+    display: flex;
+    justify-content: space-between;
+   
+    
+  }
+}
+        
+      
+      @media (max-width: 768px) {
+ 
+  .menu-icon {
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-inline:280%;
+   
+    
+  
+    
+  }
+  .logo{
+    margin-inline:-100%;
+  }
+  .molo {
+    display: inline-flex;
+    margin-inline: 40px;
+    justify-content: space-between;
+   
+    
+  }
+
+  .molo.menu-icon {
+    margin-left: 50%;
+    
+  }
+
+  .menu-items {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1;
+  }
+
+  .menu-items a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  .menu-items a:hover {
+    color: black;
+    
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 56px;
+    display: block;
+    
+  }
+}
+
 
 
      
@@ -1478,10 +1627,13 @@ footer .footer-bottom {
     <section>
       <div class="background">
         <div class="navbar">
-          <span class="menu-icon" onclick="openSidebar()">&#9776;</span>
-          <!-- Logo on the left -->
-          <a href="#" class="logo"><img src="white.logo.png" alt="Logo" /></a>
 
+          <div class="molo">
+         
+            <!-- Logo on the left -->
+            <a href="#" class="logo"><img src="white.logo.png" alt="Logo" /></a>
+            <span class="menu-icon" onclick="openSidebar()">&#9776;</span>
+            </div>
           <!-- Centered menu items -->
           <ul class="menu-items" id="sidebar">
             <div class="closebtn">

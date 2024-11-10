@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font Switcher</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Default styling */
+      body {
+        font-family: "Poppins", serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Montserrat", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to the Gadget Store</h1>
+    <p>
+      This is a simple page showcasing the use of different fonts for your
+      gadget website.
+    </p>
+    <button id="switchFontButton">Switch Font</button>
+
+    <script>
+      // JavaScript to change the font dynamically
+      document
+        .getElementById("switchFontButton")
+        .addEventListener("click", function () {
+          // Switch to a different font
+          document.body.style.fontFamily = "Inter, sans-serif";
+          document.querySelector("h1").style.fontFamily = "Roboto, sans-serif";
+        });
+    </script>
+  </body>
+</html>

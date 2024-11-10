@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* Style for the sidebar cart */
+    
+    
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(18, 17, 17);
+    
+    
+}
+
+h1 {
+    text-align: center;
+    font-size: 35px;
+    color: rgb(240, 236, 236);
+}
+
+#cartItems {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+ 
+
+.cart-item {
+    display: block;
+    text-align: left;
+    justify-content: space-between;
+    
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.totals {
+    background-color: black;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 900px;
+    border: 2px white solid;
+      max-width: 1000px;
+
+}
+.totals p{
+  color: white;
+}
+.totals .clg{
+  color: red;
+}
+.grand{
+  font-size: 30px;
+}
+input[type="number"] {
+    width: 50px;
+    margin-top: -1px;
+    margin-left: 10px;
+    border-radius: 5px;
+    height: 20px;
+    border: 1px red solid;
+}
+.leb{
+  color: #25d366;
+}
+input [type="text"]{
+  border: 2px solid red;
+}
+.box{
+  border: 1px solid red;
+  width: 80px;
+  height: 20px;
+  border-radius: 5px;
+  background: none;
+  color: white;
+}
+button {
+    display: block;
+    margin: 20px auto;
+    background-color: red; /* or any preferred color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+.free-shipping{
+  color: #25d366;
+  padding: 15px;
+  margin-inline:16%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+@media (max-width: 768px) {
+  .cart-item {
+    display: flex;
+     flex-direction: column;
+    justify-content: space-between;
+  
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+input[type="number"] {
+    width: 50px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px red solid;
+}
+.totals {
+    background-color: black;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 900px;
+  margin-inline: 10px;
+}
+
+
+}
+.uko{
+  padding: 15px;
+}
+.uko h3{
+  color: white;
+}
+.uko p{
+  color: beige;
+}
+    
+   
+h1{
+  color: #1a1a1a;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 0px;
+}
+
+.checkout-container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.order-summary, .coupon, .address-section, .payment-section {
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"] {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+@media  (max-width: 768px) {
+
+  input[type="text"] {
+    width: 93%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    margin-inline: 2%;
+}
+
+.uko p{
+  color: #25d366;
+}
+.uko h3{
+  color: #1a1a1a;
+
+}
+h3 {
+    color: #555;
+    margin-bottom: 10px;
+    margin-inline: 2%;
+}
+}
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.checkout-btn {
+    background-color: #27ae60;
+}
+
+.checkout-btn:hover {
+    background-color: #219150;
+}
+
+#couponMessage {
+    margin-top: 10px;
+}
+.uko h3{
+  color: #1a1a1a;
+  margin-inline: 8%;
+
+}
+.uko p{
+  color: #25d366;
+  margin-inline: 8%;
+}
+
+.payment-method {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%; /* Make it round */
+    background-color: lightgrey; /* Default color */
+    margin-right: 10px; /* Space between dot and text */
+}
+
+.payment-fields {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+}
+.cart-sidebar {
+      position: fixed;
+      right: -100%; /* Hidden by default */
+      top: 0;
+      width: 600px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      transition: right 0.3s ease; /* Slide-in effect */
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    /* Display the sidebar when it's active */
+    .cart-sidebar.active {
+      right: 0;
+    }
+
+    /* Close button style */
+    .close-btn {
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      position: absolute;
+      top: 15px;
+      right: -150px;
+    }
+
+    /* Cart icon styling */
+    #cartIcon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1100;
+    }
+  </style>
+  <body>
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+      <button class="close-btn" onclick="toggleCartSidebar()">×</button>
+      <h1>Your Cart</h1>
+<div id="cartItems"></div>
+
+<!-- Shipping message -->
+<p id="shippingMessage" class="free-shipping" style="display: none;">You are eligible for free shipping!</p>
+
+<div class="totals">
+    <p>Subtotal: <span id="subtotal">$0.00</span></p>
+    <p class="clg">Sales Tax: <span id="salesTax">$20.00</span></p>
+    <label class="leb" for="coupon">Coupon Code:</label>
+    <input class="box" type="text" id="coupon" placeholder="Enter coupon code">
+    <button onclick="applyCoupon()">Apply Coupon</button>
+    <p class="clg">Shipping: <span id="shipping">$0.00</span></p>
+    <p class="grand">Grand Total: <span id="grandTotal">$0.00</span></p>
+    <div id="couponMessage" style="display: none; color: red;"></div>
+</div>
+
+<!-- Tracking Order -->
+<div class="uko">
+    <h3>Tracking</h3>
+    <p>Your tracking number: <span id="trackingNumber">Not yet assigned</span></p>
+</div>
+
+<button onclick="checkout()">Proceed to Checkout</button>
+<button onclick="clearCart()">Clear Cart</button>
+
+<!-- Checkout Form (Hidden initially) -->
+<div id="checkoutForm" style="display: none;">
+  <h1>Checkout</h1>
+
+  <div class="payment-options">
+      <h2>Select Payment Method</h2>
+      
+      <div onclick="togglePaymentFields('bankTransfer', this)" class="payment-method">
+          <span class="dot"></span> <strong>Bank Transfer</strong>
+      </div>
+      <div id="bankTransferFields" class="payment-fields" style="display: none;">
+          <label>Bank Account Name: <input type="text" id="accountName"></label><br>
+          <label>Bank Account Number: <input type="text" id="accountNumber"></label><br>
+          <label>Bank Name: <input type="text" id="bankName"></label><br>
+      </div>
+      
+      <div onclick="togglePaymentFields('card', this)" class="payment-method">
+          <span class="dot"></span> <strong>Credit/Debit Card</strong>
+      </div>
+      <div id="cardFields" class="payment-fields" style="display: none;">
+          <label>Card Number: <input type="text" id="cardNumber"></label><br>
+          <label>Expiration Date: <input type="text" id="expiryDate" placeholder="MM/YY"></label><br>
+          <label>CVV: <input type="text" id="cvv"></label><br>
+      </div>
+      
+      <div onclick="togglePaymentFields('paypal', this)" class="payment-method">
+          <span class="dot"></span> <strong>Pay with PayPal  </strong>  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" width="50" />
+      </div>
+      <div id="paypalFields" class="payment-fields" style="display: none;">
+          <p>You will be redirected to PayPal to complete your purchase.</p>
+          <button onclick="redirectToPayPal()">Pay with PayPal</button>
+      </div>
+      
+      <div onclick="togglePaymentFields('cod', this)" class="payment-method">
+          <span class="dot"></span> <strong>Cash on Delivery</strong>
+      </div>
+      <div id="codFields" class="payment-fields" style="display: none;">
+          <p>Pay when you receive your order.</p>
+      </div>
+  </div>
+  
+  <button onclick="processPayment()">Complete Purchase</button>
+  
+  <script>
+  function togglePaymentFields(method, element) {
+      // Hide all fields first
+      document.querySelectorAll('.payment-fields').forEach(div => div.style.display = 'none');
+      
+      // Reset all dots to grey
+      document.querySelectorAll('.dot').forEach(dot => dot.style.backgroundColor = 'lightgrey');
+      
+      // Show the selected method's fields and turn the dot green
+      document.getElementById(method + 'Fields').style.display = 'block';
+      element.querySelector('.dot').style.backgroundColor = 'green';
+  }
+  
+  function redirectToPayPal() {
+      window.location.href = 'https://www.paypal.com';
+  }
+  
+  function processPayment() {
+      const selectedMethod = document.querySelector('.payment-fields[style*="display: block"]');
+      if (!selectedMethod) {
+          alert('Please select a payment method.');
+          return;
+      }
+      alert(`Processing payment via ${selectedMethod.id.replace('Fields', '')}`);
+  }
+  </script>
+  
+<script>
+    let couponDiscount = 0; // Initialize coupon discount
+
+    function displayCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsDiv = document.getElementById('cartItems');
+        cartItemsDiv.innerHTML = '';
+
+        if (cart.length === 0) {
+            cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+            return;
+        }
+
+        let subtotal = 0; // Initialize subtotal
+
+        cart.forEach(item => {
+            const itemTotal = item.quantity * parseFloat(item.price.replace('$', ''));
+            subtotal += itemTotal;
+            
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'cart-item';
+            itemDiv.innerHTML = `
+              <img src="${item.imageUrl}" alt="${item.productName}" style="width: 150px; height: 100px;">
+                <h3>${item.productName}</h3>
+                <p>Color: ${item.color}</p>
+                <p>Price: ${item.price}</p>
+                <p>Quantity: <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.productName}', this.value)">
+                <p>Total: <span class="itemTotal">$${itemTotal.toFixed(2)}</span></p>
+            `;
+            cartItemsDiv.appendChild(itemDiv);
+        });
+        
+        const salesTax = 20;
+        const shipping = calculateShipping(subtotal);
+        document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('salesTax').textContent = `$${salesTax.toFixed(2)}`;
+        document.getElementById('shipping').textContent = `$${shipping.toFixed(2)}`;
+        document.getElementById('grandTotal').textContent = `$${calculateGrandTotal(subtotal, salesTax, shipping).toFixed(2)}`;
+        
+        document.getElementById('shippingMessage').style.display = subtotal >= 200 ? 'block' : 'none';
+    }
+
+    function calculateShipping(subtotal) {
+        return subtotal > 200 ? 0 : 10; // Example: Free shipping if subtotal is over $200, otherwise $10
+    }
+
+    function updateQuantity(productName, quantity) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const updatedCart = cart.map(item => {
+            if (item.productName === productName) {
+                item.quantity = parseInt(quantity);
+            }
+            return item;
+        });
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        displayCart();
+    }
+
+    function applyCoupon() {
+        const couponInput = document.getElementById('coupon').value;
+        if (couponInput === "SAVE20") {
+            couponDiscount = 20;
+            document.getElementById('couponMessage').style.display = "none";
+        } else {
+            showInvalidCouponMessage();
+        }
+        const subtotal = parseFloat(document.getElementById('subtotal').textContent.replace('$', ''));
+        const salesTax = parseFloat(document.getElementById('salesTax').textContent.replace('$', ''));
+        const shipping = parseFloat(document.getElementById('shipping').textContent.replace('$', ''));
+        document.getElementById('grandTotal').textContent = `$${calculateGrandTotal(subtotal, salesTax, shipping).toFixed(2)}`;
+    }
+
+    function showInvalidCouponMessage() {
+        const messageElement = document.getElementById('couponMessage');
+        messageElement.textContent = "Coupon code is invalid";
+        messageElement.style.display = "block";
+        
+        setTimeout(() => {
+            messageElement.style.display = "none";
+        }, 5000);
+    }
+
+    function calculateGrandTotal(subtotal, salesTax, shipping) {
+        const total = subtotal + salesTax + shipping - couponDiscount;
+        return total < 0 ? 0 : total;
+    }
+
+    function checkout() {
+        document.getElementById('checkoutForm').style.display = 'block';
+    }
+
+    function completePurchase() {
+        alert("Thank you for your purchase!");
+        clearCart(); // Clear the cart after purchase
+        document.getElementById('trackingNumber').textContent = 'TRK-' + Math.floor(Math.random() * 1000000);
+    }
+
+    function clearCart() {
+        localStorage.removeItem('cart');
+        displayCart();
+        document.getElementById('trackingNumber').textContent = 'Not yet assigned';
+        alert("Your cart has been cleared.");
+    }
+
+    // Initial call to display the cart
+    displayCart();
+</script>
+    </div>
+
+    <!-- Cart Icon to open sidebar -->
+    <button id="cartIcon" onclick="toggleCartSidebar()">🛒</button>
+  </body>
+  <script>
+    // Toggle the visibility of the cart sidebar
+    function toggleCartSidebar() {
+      const cartSidebar = document.getElementById("cartSidebar");
+      cartSidebar.classList.toggle("active");
+    }
+  </script>
+</html>

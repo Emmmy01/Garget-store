@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+    <style>
+      /* Basic page styling */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Cart container */
+      .cart-container {
+        width: 80%;
+        max-width: 600px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Table styling */
+      .cart-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .cart-table th,
+      .cart-table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .cart-table th {
+        background-color: #333;
+        color: #fff;
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* Price, quantity, and total styling */
+      .price,
+      .quantity,
+      .item-total {
+        text-align: right;
+      }
+
+      /* Quantity input styling */
+      .quantity input {
+        width: 50px;
+        text-align: center;
+      }
+
+      /* Summary section */
+      .cart-summary {
+        margin-top: 20px;
+      }
+
+      .cart-summary p {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      /* Free shipping message */
+      #freeShippingMessage {
+        color: green;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      /* Tracking section */
+      #trackingInfo {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      #trackingInfo input {
+        padding: 5px;
+        width: 100%;
+        max-width: 200px;
+        margin: 10px auto;
+        color: black;
+        background: green;
+      }
+      .clog {
+        border: black;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cart-container">
+      <h2>Your Cart</h2>
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="cartItemsContainer">
+          <!-- Sample product in cart -->
+          <tr>
+            <td>Samsung Galaxy Flip 6</td>
+            <td class="quantity">
+              <input type="number" value="2" min="1" onchange="updateCart()" />
+            </td>
+            <td class="price">$60.00</td>
+            <td class="item-total">$120.00</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Tracking Information -->
+      <div class="trackingInfo" id="trackingInfo">
+        <label class="clog" for="trackingNumber">Enter Tracking Number:</label>
+        <input type="text" id="trackingNumber" placeholder="Tracking Number" />
+        <button onclick="trackOrder()">Track Order</button>
+      </div>
+      <div class="cart-summary">
+        <p>Subtotal: <span id="subtotal">$120.00</span></p>
+        <p>Sales Tax: <span id="salesTax">$20.00</span></p>
+        <p>Shipping: <span id="shippingCost">$5.00</span></p>
+        <p>Grand Total: <span id="grandTotal">$145.00</span></p>
+      </div>
+
+      <div id="freeShippingMessage" style="display: none">
+        You are eligible for free shipping!
+      </div>
+
+      <!-- Tracking Information -->
+      <div class="trackingInfo" id="trackingInfo">
+        <label class="clog" for="trackingNumber">Enter Tracking Number:</label>
+        <input type="text" id="trackingNumber" placeholder="Tracking Number" />
+        <button onclick="trackOrder()">Track Order</button>
+      </div>
+
+      <button id="clearCartButton" onclick="clearCart()">Clear Cart</button>
+    </div>
+
+    <script>
+      // Initial setup and calculation of totals
+      function updateCart() {
+        let subtotal = 0;
+        const items = document.querySelectorAll("#cartItemsContainer tr");
+
+        items.forEach((row) => {
+          const quantity = parseInt(row.querySelector(".quantity input").value);
+          const price = parseFloat(
+            row.querySelector(".price").textContent.replace("$", "")
+          );
+          const itemTotal = quantity * price;
+          row.querySelector(".item-total").textContent = `$${itemTotal.toFixed(
+            2
+          )}`;
+          subtotal += itemTotal;
+        });
+
+        const salesTax = 20;
+        let shippingCost = subtotal > 50 ? 0 : 5;
+
+        // Update totals
+        document.getElementById("subtotal").textContent = `$${subtotal.toFixed(
+          2
+        )}`;
+        document.getElementById("salesTax").textContent = `$${salesTax.toFixed(
+          2
+        )}`;
+        document.getElementById(
+          "shippingCost"
+        ).textContent = `$${shippingCost.toFixed(2)}`;
+        document.getElementById("grandTotal").textContent = `$${(
+          subtotal +
+          salesTax +
+          shippingCost
+        ).toFixed(2)}`;
+
+        // Display free shipping message if eligible
+        document.getElementById("freeShippingMessage").style.display =
+          subtotal > 50 ? "block" : "none";
+      }
+
+      // Function to clear cart
+      function clearCart() {
+        document.getElementById("cartItemsContainer").innerHTML = "";
+        document.getElementById("subtotal").textContent = "$0.00";
+        document.getElementById("salesTax").textContent = "$0.00";
+        document.getElementById("shippingCost").textContent = "$0.00";
+        document.getElementById("grandTotal").textContent = "$0.00";
+        document.getElementById("freeShippingMessage").style.display = "none";
+        alert("Your cart has been cleared.");
+      }
+
+      // Function to track order
+      function trackOrder() {
+        const trackingNumber = document.getElementById("trackingNumber").value;
+        if (trackingNumber) {
+          alert(`Tracking Order: ${trackingNumber}`);
+        } else {
+          alert("Please enter a tracking number.");
+        }
+      }
+
+      // Initialize totals on page load
+      updateCart();
+    </script>
+  </body>
+</html>
